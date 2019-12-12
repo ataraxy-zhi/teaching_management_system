@@ -21,6 +21,8 @@ import javax.swing.border.EmptyBorder;
 
 import function_frame.ModifyPassword;
 import user_information.User;
+import function_frame.AddTeacherInformation;
+import function_frame.UserManagement;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -131,6 +133,17 @@ public class Administrator extends JFrame {
 		JButton btnManageUsers = new JButton("管理用户");
 		btnManageUsers.setBounds(461, 97, 105, 29);
 		contentPane.add(btnManageUsers);
+		btnManageUsers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnManageUsersClicked(e);
+			}
+			//管理用户按钮点击事件处理
+			private void btnManageUsersClicked(ActionEvent e) {
+				UserManagement frame = new UserManagement();
+				frame.setVisible(true);
+			}
+		});
+		
 		
 		JButton btnManageCourse = new JButton("管理课程");
 		btnManageCourse.setBounds(461, 174, 105, 29);

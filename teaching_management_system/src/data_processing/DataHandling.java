@@ -47,9 +47,9 @@ public class DataHandling {
 	 */
 	private static Connection con() throws SQLException, ClassNotFoundException{
 		Init();
-		String url = "jdbc:mysql://localhost:3306/teaching_system11.27?characterEncoding=utf8&useSSL=false";//utf-8编码
+		String url = "jdbc:mysql://localhost:3306/new_schema?characterEncoding=utf8&useSSL=false";//utf-8编码
 		String user = "root";
-		String password = "123456";
+		String password = "412554";
 		Connection connection = null;
 		try {
 			connection = DriverManager.getConnection(url, user, password);
