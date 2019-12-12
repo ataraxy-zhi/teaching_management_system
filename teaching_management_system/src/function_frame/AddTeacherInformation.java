@@ -211,6 +211,7 @@ public class AddTeacherInformation extends JFrame {
 					JOptionPane.showMessageDialog(null, "添加成功", 
 							"提示", JOptionPane.WARNING_MESSAGE);
 					dispose();
+					//推出窗口
 				}
 				catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
