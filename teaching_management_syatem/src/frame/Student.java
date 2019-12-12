@@ -23,6 +23,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import function_frame.CourseSelecting;
 import function_frame.ModifyPassword;
 import user_information.User;
 
@@ -35,8 +36,8 @@ import user_information.User;
 public class Student extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
-	private User user;
+			
+	private User user;	
 	
 	private JPanel contentPane;
 
@@ -123,6 +124,16 @@ public class Student extends JFrame {
 		JButton btnSelectCourses = new JButton("选课");
 		btnSelectCourses.setBounds(376, 129, 98, 29);
 		contentPane.add(btnSelectCourses);
+		btnSelectCourses.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				btnSelectCoursesClicked(e);
+				
+			}
+		});
+		
 		
 		JButton btnLookScores = new JButton("查看成绩");
 		btnLookScores.setBorder(BorderFactory.createEtchedBorder());
@@ -156,6 +167,12 @@ public class Student extends JFrame {
 		ModifyPassword frame = new ModifyPassword(user);
 		frame.setVisible(true);
 	}
+	
+	
+	public void btnSelectCoursesClicked(ActionEvent event) {		
+		CourseSelecting frame = new CourseSelecting(user);
+		frame.setVisible(true);
+	} 
 	
 
 }

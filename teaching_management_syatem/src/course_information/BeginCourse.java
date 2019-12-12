@@ -18,8 +18,10 @@ public class BeginCourse {
 	private String bcId;           //开课号
 	private String bcCourse;       //开课课程号
 	private String bcTeacher;      //授课老师工号
+	private String bcClass;        //开课班号
 	private String bcClassroom;    //开课教室
-	private String bcCapacity;     //开课容量
+	private int bcCapacity;     //开课容量
+	private int bcBeSelected;    //已选数
 	private String bcBegintime;    //开始时间
 	private String bcEndtime;      //结束时间
 	private String bctime;         //上课时间
@@ -36,14 +38,16 @@ public class BeginCourse {
 	 * @param bcEndtime
 	 * @param bctime 
 	 */  
-	public BeginCourse(String bcId, String bcCourse, String bcTeacher, String bcClassroom, String bcCapacity,
+	public BeginCourse(String bcId, String bcCourse, String bcTeacher, String bcClass, String bcClassroom, int bcCapacity,
 			String bcBegintime, String bcEndtime, String bctime) {
 		super();
 		this.bcId = bcId;
 		this.bcCourse = bcCourse;
+		this.bcClass=bcClass;
 		this.bcTeacher = bcTeacher;
 		this.bcClassroom = bcClassroom;
 		this.bcCapacity = bcCapacity;
+		this.bcBeSelected=0;
 		this.bcBegintime = bcBegintime;
 		this.bcEndtime = bcEndtime;
 		this.bctime = bctime;
@@ -78,6 +82,28 @@ public class BeginCourse {
 		this.bcCourse = bcCourse;
 	}
 
+	/** 
+	 * @Title: getBcClass 
+	 * @Description: TODO 
+	 * @return String 
+	 * @author: --
+	 * @date 2019年12月5日下午3:38:40 
+	 */
+	public String getBcClass() {
+		return bcClass;
+	}
+	
+	/** 
+	 * @Title: setBcClass 
+	 * @Description: TODO 
+	 * @param bc void 
+	 * @author: --
+	 * @date 2019年12月5日下午3:40:18 
+	 */
+	public void setBcClass(String bc) {
+		this.bcClass=bc;
+	}
+	
 	/**
 	 * @return the bcTeacher
 	 */
@@ -109,14 +135,14 @@ public class BeginCourse {
 	/**
 	 * @return the bcCapacity
 	 */
-	public String getBcCapacity() {
+	public int getBcCapacity() {
 		return bcCapacity;
 	}
 
 	/**
 	 * @param bcCapacity the bcCapacity to set
 	 */
-	public void setBcCapacity(String bcCapacity) {
+	public void setBcCapacity(int bcCapacity) {
 		this.bcCapacity = bcCapacity;
 	}
 
@@ -156,12 +182,32 @@ public class BeginCourse {
 	}
 
 	/**
+	 * 
 	 * @param bctime the bctime to set
 	 */
 	public void setBctime(String bctime) {
 		this.bctime = bctime;
 	}
 
+	/**
+	 * @return bcBeSelected
+	 *@author PC
+	 */
 	
+	public int getBeSelect() {
+		return this.bcBeSelected;
+	}
+	
+	public void BeSelect(boolean y) {
+		if(y) {
+			this.bcBeSelected++;
+			return;
+		}
+		this.bcBeSelected--;
+	}
+	
+	public void SetBeSelected(int i) {
+		this.bcBeSelected=i;
+	}
 
 }

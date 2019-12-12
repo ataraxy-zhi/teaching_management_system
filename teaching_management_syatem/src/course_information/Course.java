@@ -88,6 +88,10 @@ public class Course {
 		this.courseCollege = courseCollege;
 	}
 	
+	public String toString() {
+		return courseName;
+	}
+	
 	
 
 }

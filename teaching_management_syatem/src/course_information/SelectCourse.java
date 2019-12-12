@@ -17,6 +17,7 @@ public class SelectCourse {
 
 	private String scId;         //选课号
 	private String scCourse;     //选课课程号
+	private String scClass;      //选课班号
 	private String scStudent;    //选课学生学号
 	private String scterm;       //选课学期
 	private float scGrade;       //成绩
@@ -30,6 +31,7 @@ public class SelectCourse {
 	 * @param scterm
 	 * @param scGrade 
 	 */  
+	/*
 	public SelectCourse(String scId, String scCourse, String scStudent, String scterm, float scGrade) {
 		super();
 		this.scId = scId;
@@ -37,6 +39,15 @@ public class SelectCourse {
 		this.scStudent = scStudent;
 		this.scterm = scterm;
 		this.scGrade = scGrade;
+	}
+    */
+	public SelectCourse(String scId, String scCourse, String scStudent, String scterm) {
+		super();
+		this.scId = scId;
+		this.scCourse = scCourse;
+		this.scStudent = scStudent;
+		this.scterm = scterm;
+		//this.scGrade = scGrade;
 	}
 
 	
@@ -69,6 +80,28 @@ public class SelectCourse {
 		this.scCourse = scCourse;
 	}
 
+	/** 
+	 * @Title: getScClass 
+	 * @Description: TODO 
+	 * @return String 
+	 * @author: --
+	 * @date 2019年12月5日下午3:55:27 
+	 */
+	public String getScClass() {
+		return scClass;
+	}
+	
+	/** 
+	 * @Title: setScClass 
+	 * @Description: TODO 
+	 * @param sc void 
+	 * @author: --
+	 * @date 2019年12月5日下午3:56:37 
+	 */
+	public void setScClass(String sc) {
+		scClass=sc;
+	}
+	
 	/**
 	 * @return the scStudent
 	 */
