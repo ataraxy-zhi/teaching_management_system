@@ -10,6 +10,9 @@ package data_processing;
 import java.sql.*;
 import java.util.ArrayList;
 
+import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
+import com.sun.org.apache.regexp.internal.recompile;
+
 import user_information.User;
 
 /** 
@@ -20,6 +23,7 @@ import user_information.User;
  */
 public class DataHandling {
 	
+
 	/** 
 	 * @Title: Init 
 	 * @Description: 初始化数据库连接驱动
@@ -34,7 +38,6 @@ public class DataHandling {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	/** 
 	 * @Title: con 
@@ -233,6 +236,44 @@ public class DataHandling {
 		
 		statement.close();
 		connection.close();
+	}
+	
+	//添加老师,更新teacher表和user表
+	public static void addTeacherInfomation(user_information.Teacher[] teachers) throws ClassNotFoundException, SQLException {
+		Connection connection = con();
+		Statement statement = connection.createStatement();
+		//生成老师的id
+		ResultSet rs = statement.executeQuery("select * from teacher");
+		int baseId = 0;
+		while(rs.next()) {
+			baseId = Integer.parseInt(rs.getString(1).toString());
+		}
+		rs.close();
+		for(int i=0;i<100;i++) {
+			if(teachers[i].getName()==null) break;
+			teachers[i].SetTeacherId(getId(i,baseId));
+			//更新数据库
+			statement.executeUpdate("insert into teacher(teac_id,teac_name,teac_college) values"+teachers[i].toString());
+		}
+		//更新数据库
+		statement.close();
+		connection.close();
+		
+	}
+	
+	//自动生成工号或者学号
+	public static String getId(int count,int baseId)
+	{
+		baseId=baseId + 1 + count;
+		String id = null;
+		char[] Str =new char[6];
+		for(int i=0;i<5;i++) {
+			Str[5-i] = (char) (baseId%10+'0');
+			baseId=baseId/10;
+		}
+		Str[0] = '0';
+		id =String.valueOf(Str);
+		return id;
 	}
 	
 }
